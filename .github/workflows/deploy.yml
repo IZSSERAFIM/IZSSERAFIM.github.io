@@ -14,14 +14,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install pnpm
-        run: corepack enable # 使用 corepack 安装 pnpm
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: '18' # 选择 Node.js 版本
-          cache: 'pnpm'
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
