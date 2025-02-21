@@ -6,9 +6,9 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
-  useEffect(() => {
+  const handleRedirect = () => {
     window.location.href = "http://ruobin-li.github.io/"
-  }, [])
+  }
 
   return (
     <>
@@ -21,6 +21,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <button onClick={handleRedirect}>
+        Go to ruobin-li.github.io
+      </button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
